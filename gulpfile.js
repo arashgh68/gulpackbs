@@ -51,7 +51,7 @@ function html() {
 
 function js() {
 
-    return gulp.src([src + 'js/**/*', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/popper.js/dist/umd/popper.min.js', 'node_modules/bootstrap/dist/js/bootstrap.min.js'])
+    return gulp.src(['node_modules/jquery/dist/jquery.min.js', 'node_modules/popper.js/dist/umd/popper.min.js', 'node_modules/bootstrap/dist/js/bootstrap.min.js', src + 'js/**/*'])
         .pipe(sourcemaps ? sourcemaps.init() : noop())
         .pipe(deporder())
         .pipe(concat('main.js'))
@@ -70,7 +70,7 @@ function font() {
 
 function css() {
 
-    return gulp.src(['node_modules/font-awesome/css/font-awesome.min.css','node_modules/bootstrap/scss/bootstrap.scss', src + 'scss/main.scss'])
+    return gulp.src(['node_modules/font-awesome/css/font-awesome.min.css','node_modules/bootstrap/scss/bootstrap.scss', src + 'scss/main.scss', src + 'css/**/*'])
         .pipe(sourcemaps ? sourcemaps.init() : noop())
         .pipe(sass({
             outputStyle: 'nested',
